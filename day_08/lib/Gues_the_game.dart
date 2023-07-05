@@ -12,6 +12,6 @@ int main(){
   while(guess != randomNumber){
     stdout.write('Enter your guess:');
     String? Gues_the_game=Gues_the_game.readLineSync();
-    print(input);
+    print(Gues_the_game);
   }
 }
