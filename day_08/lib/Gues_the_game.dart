@@ -13,5 +13,7 @@ int main(){
     stdout.write('Enter your guess:');
     String? Gues_the_game=Gues_the_game.readLineSync();
     print(Gues_the_game);
+    stdout.write print('Enter the guess')
+
   }
 }
