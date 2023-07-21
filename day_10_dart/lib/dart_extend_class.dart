@@ -29,7 +29,7 @@ void main(){
   final horse=Horse(name: 'mori', type:'horse');
   horse.makeNoise();
   final cat=Cat(name: 'muur', type:'cat');
-  cat.makeNoise();
+  catStateless.makeNoise();
 }
 
 class Animal {
