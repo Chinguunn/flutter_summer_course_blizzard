@@ -10,10 +10,10 @@ class WelcomePage extends StatelessWidget {
       body: Container(
         child: Column(
           children: [
-            GradientLetter(letter: 'W'),
+            GradientLetter(letter: 'w'),
             GradientLetter(letter: 'O'),
             GradientLetter(letter: 'R'),
-            GradientLetter(letter: 'D'),
+            GradientLetter(letter: 'd'),
           ],
         ),
       ),
@@ -29,6 +29,7 @@ class WelcomePage extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(25)
         ),
+        child: ElevatedButton({}),
       ),
     );
   }
