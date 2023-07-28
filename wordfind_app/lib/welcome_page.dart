@@ -27,9 +27,17 @@ class WelcomePage extends StatelessWidget {
             colors: [Color(0xFFE86B02) , Color(0xFFFA9541)],
 
           ),
-          borderRadius: BorderRadius.circular(25)
+          borderRadius: BorderRadius.circular(25),
+
         ),
-        child: ElevatedButton({}),
+          child: ElevatedButton(
+            onPressed: () { },
+            child: Text('play'),
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent
+            Elevation
+            ),
+          )
       ),
     );
   }
