@@ -72,7 +72,7 @@ class FlexScreen extends StatelessWidget {
               child: LabeledContainer(color: Colors.deepOrange, text: '25%')),
           Flexible(
               flex: 1,
-              child: LabeledContainer(color: Colors.deepOrange, text: '25%')),
+              child: LabeledContainer(color: Colors.green, text: '25%')),
           Flexible(
               flex: 2,
               child: LabeledContainer(color: Colors.blue, text: '50%')),
