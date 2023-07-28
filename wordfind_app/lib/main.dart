@@ -7,6 +7,7 @@ void main() {
     theme: ThemeData(fontFamily: 'Ribeye'),
     home: Scaffold(
         body: WelcomePage(),
+
     )
   );
   runApp(zugeerApp);
