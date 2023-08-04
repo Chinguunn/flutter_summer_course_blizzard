@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:wordfind_app/gradient_text.dart';
+import 'input_field.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +26,18 @@ class StartPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        height: 50,
+        height: 50.0,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/back2.png'), fit: BoxFit.cover)),
+                image: AssetImage('assets/back2.png '),fit: BoxFit.cover )),
         child: Center(
           child: Column(
             children: [
               Padding(padding: EdgeInsets.only(top: 50)),
-              Image.asset('assets/icodeGuyHead.png'),
+              Image.asset('assets/iCodeGuyHead.png'),
               Padding(padding: EdgeInsets.only(top: 20)),
-              GradientText('Player Name', 20.0),
+              GradientText('Player Name', 20.0, ),
+              InputField(),
               Padding(padding: EdgeInsets.only(top: 20))
             ],
           ),
@@ -51,18 +55,32 @@ class StartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 310,
-      height: 60,
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft,
-            colors: [
-              Color(0xFFE86B02),
-              Color(0xFFFA9541),
-            ],
+        width: 310,
+        height: 60,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerRight,
+              end: Alignment.centerLeft,
+              colors: [
+                Color(0xFFE86B02),
+                Color(0xFFFA9541),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(25)),
+        child: ElevatedButton(
+          onPressed: (){},
+          child: Text(
+            'Start',
+            style: TextStyle(
+                fontFamily: 'Nunito',
+                fontSize: 24,
+                fontWeight: FontWeight.w700),
           ),
-          borderRadius: BorderRadius.circular(25)),
-    );
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25))),
+        ));
   }
 }

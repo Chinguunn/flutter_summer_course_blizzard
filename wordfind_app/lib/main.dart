@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wordfind_app/Task_page.dart';
+import 'package:wordfind_app/start_page.dart';
 import 'package:wordfind_app/welcome_page.dart';
 
 void main() {
@@ -6,8 +8,8 @@ void main() {
     title: 'Word Find Game',
     theme: ThemeData(fontFamily: 'Ribeye'),
     home: Scaffold(
-        body: WelcomePage(),
-
+        body: TaskPage(
+        ),
     )
   );
   runApp(zugeerApp);
