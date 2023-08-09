@@ -37,7 +37,7 @@ class StartPage extends StatelessWidget {
               Image.asset('assets/iCodeGuyHead.png'),
               Padding(padding: EdgeInsets.only(top: 20)),
               GradientText('Player Name', 20.0, ),
-              InputField(),
+
               Padding(padding: EdgeInsets.only(top: 20))
             ],
           ),
