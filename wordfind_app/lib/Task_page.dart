@@ -13,8 +13,7 @@ class TaskPage extends StatefulWidget {
 }
 
 class _TaskPageState extends State<TaskPage> {
-  late List<TaskModel>
-  listQuestions;
+  late List<TaskModel> listQuestions;
   GlobalKey<TaskWidgetState> globalKey = GlobalKey();
 
   late User user;
@@ -45,37 +44,47 @@ class _TaskPageState extends State<TaskPage> {
       ),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/back2.png'), fit: BoxFit.cover),
-          ),
-
-          child: LayoutBuilder(
-
-            builder: (BuildContext context, BoxConstraints constraints) {  return TaskWidget(constraints.biggest,
-                listQuestions.map((question) => question.clone()).toList(),
-                key: globalKey
-            );},
-            children:[
-              Expanded(
-                child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/back2.png'), fit: BoxFit.cover),
+            ),
+            child: Column(
+              children: [
+                Expanded(child: LayoutBuilder(builder:
+                    (BuildContext context, BoxConstraints constraints) {
+                  return TaskWidget(
+                      constraints.biggest,
+                      listQuestions
+                          .map((question) => question.clone())
+                          .toList(),
+                      key: globalKey);
+                })),
+                Container(
                   width: double.maxFinite,
                   padding: EdgeInsets.only(bottom: 10),
                   color: Colors.white,
                   child: Center(
                     child: Column(
                       children: [
-
                         Container(
                           width: 150,
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                  colors: [Color(0xFFE86B02), Color(0xFFFA9541)],
+                                  colors: [
+                                    Color(0xFFE86B02),
+                                    Color(0xFFFA9541)
+                                  ],
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight),
                               borderRadius: BorderRadius.circular(10)),
                           child: ElevatedButton(
-                            onPressed: () {globalKey.currentState?.generatePuzzle( loop: listQuestions.map((question) => question.clone()).toList(),); },
+                            onPressed: () {
+                              globalKey.currentState?.generatePuzzle(
+                                loop: listQuestions
+                                    .map((question) => question.clone())
+                                    .toList(),
+                              );
+                            },
                             child: Text(
                               'reload',
                               style: TextStyle(
@@ -94,13 +103,9 @@ class _TaskPageState extends State<TaskPage> {
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ),
+              ],
+            )),
       ),
     );
   }
-
-
 }

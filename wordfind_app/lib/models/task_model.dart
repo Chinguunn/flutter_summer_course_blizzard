@@ -8,12 +8,14 @@ class TaskModel {
   bool isFull = false;
   List<CharModel> puzzles = [];
   List<String> arrayButtons = [];
+
   TaskModel({
     required this.pathImage,
     required this.question,
     required this.answer,
     this.arrayButtons = const [],
   });
+
   void setWordFindChar(List<CharModel> puzzles) {
     this.puzzles = puzzles;
   }
@@ -25,7 +27,7 @@ class TaskModel {
   bool fieldCompleteCorrect() {
     bool complete =
         puzzles.where((puzzle) => puzzle.currentValue == null).isEmpty;
-    if (complete) {
+    if (!complete) {
       isFull = false;
       return complete;
     } else {}

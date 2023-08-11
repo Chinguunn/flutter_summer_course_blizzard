@@ -1,12 +1,15 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:word_search_safety/word_search_safety.dart';
+
 import 'models/char_Model.dart';
 import 'models/task_model.dart';
 
 class TaskWidget extends StatefulWidget {
   final Size size;
   final List<TaskModel> listQuestions;
+
   const TaskWidget(this.size, this.listQuestions, {super.key});
 
   @override
@@ -15,8 +18,7 @@ class TaskWidget extends StatefulWidget {
 
 class TaskWidgetState extends State<TaskWidget> {
   late Size size;
-  late List<TaskModel>
-  listQuestions;
+  late List<TaskModel> listQuestions;
   int indexQues = 0; // current index question
   int hintCount = 0;
 
