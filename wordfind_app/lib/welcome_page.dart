@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:wordfind_app/Gradien_letter.dart';
+import 'package:wordfind_app/start_page.dart';
 import 'gradient_text.dart';
 
 class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,8 +13,7 @@ class WelcomePage extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/back1.png'),
-                  fit: BoxFit.cover)),
+                  image: AssetImage('assets/back1.png'), fit: BoxFit.cover)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -31,9 +33,8 @@ class WelcomePage extends StatelessWidget {
                     ],
                   ),
                   GradientText('GAME', 31.6),
-                  Image.asset('assets/iCodeGuy.png' ),
-
-                   Expanded(child: GradientText('READY?', 25.0))
+                  Image.asset('assets/iCodeGuy.png'),
+                  Expanded(child: GradientText('READY?', 25.0))
                 ],
               )),
             ],
@@ -51,7 +52,10 @@ class WelcomePage extends StatelessWidget {
               borderRadius: BorderRadius.circular(25),
             ),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const StartPage()));
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   elevation: 0,
