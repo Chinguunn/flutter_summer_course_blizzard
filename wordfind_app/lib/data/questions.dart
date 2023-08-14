@@ -15,5 +15,4 @@ List<TaskModel> questions = [
       pathImage:
           'https://as1.ftcdn.net/v2/jpg/02/48/64/04/1000_F_248640483_5KAZi0GqcWrBu6GOhFEAxk1quNEuOzHJ.jpg',
       question: 'What is this animal name?',
-      answer: 'Wolf')
-];
+      answer: 'Wolf')];

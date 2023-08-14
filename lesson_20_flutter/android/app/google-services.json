@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1066765621483",
+    "project_id": "lesson-day-20",
+    "storage_bucket": "lesson-day-20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066765621483:android:021967aa370c307cddc6ae",
+        "android_client_info": {
+          "package_name": "com.example.lesson_20_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1066765621483-jlaoh28sdoeen3m11ar80ss9eo511f2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-VC0CgqJZYfRLMe0Yq-luWmtEzpMijyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1066765621483-jlaoh28sdoeen3m11ar80ss9eo511f2v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
