@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_20_flutter/pages/text_field.dart';
+import 'package:lesson_20_flutter/screens/login_Screen.dart';
+
+import '../resourses/auth_Method.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -9,16 +12,30 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-
-  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _userController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _rePasswordController = TextEditingController();
-@override
+  @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
+  }
 
+  void loginUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String result = await AuthMethods().loginUser(
+        email: _emailController.text, password: _passwordController.text);
+
+    if (result == "Success") {
+      setState(() {
+        _isLoading = false;
+      });
+      print('Logged in');
+    } else {
+      print('Not logged in');
+    }
   }
 
   @override
@@ -32,53 +49,78 @@ class _SignUpState extends State<SignUp> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Icodegram',
+                'iCodeStagram',
                 style: TextStyle(fontSize: 34),
               ),
               SizedBox(
                 height: 64,
               ),
-            TextFieldInput(hintText: 'утасны дугаар', isPassword: false,
-            textEditingController: _phoneNumberController
-            ),
-              SizedBox(height: 24,),
-              TextFieldInput(hintText: 'Нэр', isPassword: false,
-              textEditingController: _userController,
+              TextFieldInput(
+                  hintText: 'И Мэйл',
+                  isPassword: false,
+                  textEditingController: _emailController,
+                  textInputType: TextInputType.emailAddress),
+              SizedBox(
+                height: 24,
               ),
-              SizedBox(height: 24,),
-             TextFieldInput(hintText: 'Нууц үг', isPassword: true,
-             textEditingController: _passwordController,
-             ),
-              SizedBox(height: 24,),
-              TextFieldInput(hintText: 'нууц үг давтах', isPassword: true,
-              textEditingController: _rePasswordController,
+              TextFieldInput(
+                hintText: 'Нэр',
+                isPassword: false,
+                textEditingController: _userController,
+                textInputType: TextInputType.text,
               ),
-              SizedBox(height: 24,),
-Flexible(child: Container(),
-flex: 2,
-),
-
-         InkWell(
-           onTap: (){} ,
-           child: Container(
-             width: double.infinity,
-             alignment: Alignment.center,
-             padding: EdgeInsets.symmetric(vertical: 12),
-             child: Text('бүртгүүлэх'),
-             decoration: ShapeDecoration(shape:
-             RoundedRectangleBorder(
-               borderRadius: BorderRadius.all(Radius.circular(4)),
-
-             )
-             ,color:Colors.blueAccent),
-           ),
-         ),
+              SizedBox(
+                height: 24,
+              ),
+              TextFieldInput(
+                hintText: 'Нууц үг',
+                isPassword: true,
+                textEditingController: _passwordController,
+                textInputType: TextInputType.text,
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              TextFieldInput(
+                hintText: 'нууц үг давтах',
+                isPassword: true,
+                textEditingController: _rePasswordController,
+                textInputType: TextInputType.text,
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Flexible(
+                child: Container(),
+                flex: 2,
+              ),
+              InkWell(
+                onTap: () {
+                  loginUser();
+                  AuthMethods().signUpUser(
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                      username: _userController.text);
+                },
+                child: Container(
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(vertical: 12),
+                  child: Text('бүртгүүлэх'),
+                  decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4)),
+                      ),
+                      color: Colors.orange),
+                ),
+              ),
               SizedBox(
                 height: 12,
               ),
-
-              Flexible(child: Container(),
-              flex: 2,)
+              Flexible(
+                child: Container(),
+                flex: 2,
+              )
             ],
           ),
         ),
