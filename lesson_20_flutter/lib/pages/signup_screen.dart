@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_20_flutter/pages/text_field.dart';
-import 'package:lesson_20_flutter/screens/login_Screen.dart';
-
+import 'package:lesson_20_flutter/screens/home_screen.dart';
+import 'package:lesson_20_flutter/screens/login_screen.dart';
 import '../resourses/auth_Method.dart';
 
 class SignUp extends StatefulWidget {
@@ -16,6 +16,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _userController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _rePasswordController = TextEditingController();
+  bool _isLoading = false;
   @override
   void dispose() {
     super.dispose();
@@ -50,7 +51,9 @@ class _SignUpState extends State<SignUp> {
             children: [
               Text(
                 'iCodeStagram',
-                style: TextStyle(fontSize: 34),
+                style: TextStyle(fontSize: 34,
+                fontFamily:'Rubik'
+                ),
               ),
               SizedBox(
                 height: 64,
@@ -101,12 +104,14 @@ class _SignUpState extends State<SignUp> {
                       email: _emailController.text,
                       password: _passwordController.text,
                       username: _userController.text);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                 },
                 child: Container(
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: EdgeInsets.symmetric(vertical: 12),
                   child: Text('бүртгүүлэх'),
+
                   decoration: ShapeDecoration(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -128,3 +133,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
+
+
+
+

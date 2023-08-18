@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:icodegram_flutter/pages/sign_up.dart';
-import 'package:icodegram_flutter/pages/text_field.dart';
-import 'package:icodegram_flutter/pages/auth_Method.dart';
-import 'package:icodegram_flutter/pages/home_screen.dart';
+import 'package:lesson_20_flutter/pages/signup_screen.dart';
+import 'package:lesson_20_flutter/pages/text_field.dart';
+import 'package:lesson_20_flutter/resourses/auth_Method.dart';
+import 'package:lesson_20_flutter/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -86,10 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Text('Эсвэл'),
               Text('Шинэ хэрэглэгчүү?'),
               InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignUp()));
-                },
+                onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));},
                 child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,
@@ -104,11 +101,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Center(
                       child: _isLoading
                           ? Center(
-                              child: CircularProgressIndicator(
-                                  color: Colors.orange))
+                          child: CircularProgressIndicator(
+                              color: Colors.orange))
                           : Text('Бүртгүүлэх'),
                     )),
               ),
+
+
+
               SizedBox(
                 height: 12,
               ),
