@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icodegram_flutter/pages/gradient_text.dart';
 import 'package:icodegram_flutter/pages/text_field.dart';
 import 'package:icodegram_flutter/pages/home_screen.dart';
 import 'package:icodegram_flutter/pages/login.dart';
@@ -17,25 +18,34 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _rePasswordController = TextEditingController();
   bool _isLoading = false;
+
   @override
   void dispose() {
     super.dispose();
   }
 
-  void loginUser() async {
-    setState(() {
-      _isLoading = true;
-    });
-    String result = await AuthMethods().loginUser(
-        email: _emailController.text, password: _passwordController.text);
-
-    if (result == "Success") {
+  void signUpUser() async {
+    {
       setState(() {
-        _isLoading = false;
+        _isLoading = true;
       });
-      print('Logged in');
-    } else {
-      print('Not logged in');
+
+      String result = await AuthMethods().signUpUser(
+          email: _emailController.text,
+          password: _passwordController.text,
+          username: _userController.text);
+
+      if (result == "success") {
+        setState(() {
+          _isLoading = false;
+        });
+
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        print('Logged in');
+      } else {
+        print('Not logged in');
+      }
     }
   }
 
@@ -49,11 +59,13 @@ class _SignUpState extends State<SignUp> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Flexible(
+                child: Container(),
+                flex: 2,
+              ),
               Text(
-                'iCodeStagram',
-                style: TextStyle(fontSize: 34,
-                    fontFamily:'Rubik'
-                ),
+                'iCodegram',
+                style: TextStyle(fontSize: 34, fontFamily: 'Lobster'),
               ),
               SizedBox(
                 height: 64,
@@ -98,20 +110,12 @@ class _SignUpState extends State<SignUp> {
                 flex: 2,
               ),
               InkWell(
-                onTap: () {
-                  loginUser();
-                  AuthMethods().signUpUser(
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                      username: _userController.text);
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
-                },
+                onTap: signUpUser,
                 child: Container(
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: EdgeInsets.symmetric(vertical: 12),
-                  child: Text('бүртгүүлэх'),
-
+                  child: Text('бүртгүүлэх' ),
                   decoration: ShapeDecoration(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -121,6 +125,36 @@ class _SignUpState extends State<SignUp> {
               ),
               SizedBox(
                 height: 12,
+              ),
+              Text('Эсвэл'),
+              Text('бүртгэлтэй юу?'),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
+                child: Container(
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(vertical: 12),
+                    decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
+                        ),
+                      ),
+                    ),
+                    child: Center(
+                      child: _isLoading
+                          ? Center(
+                          child: CircularProgressIndicator(
+                             ))
+                          : Text('Нэвтрэх',
+                        style: TextStyle(
+                          color: Colors.orange
+                        ),
+                      ),
+                    )),
               ),
               Flexible(
                 child: Container(),
@@ -133,7 +167,3 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
-
-
-
-

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:icodegram_flutter/pages/gradient_text.dart';
 import 'package:icodegram_flutter/pages/sign_up.dart';
 import 'package:icodegram_flutter/pages/text_field.dart';
 import 'package:icodegram_flutter/pages/auth_Method.dart';
@@ -43,7 +44,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 flex: 2,
                 child: Container(),
               ),
-              Text('iCodeStagram'),
+              Text(
+                'iCodegram',
+                style: TextStyle(fontFamily: 'Lobster', fontSize: 34),
+              ),
               SizedBox(
                 height: 64,
               ),
@@ -69,18 +73,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.symmetric(vertical: 12),
                     decoration: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(4),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(4),
+                          ),
                         ),
-                      ),
-                    ),
+                        color: Colors.orange),
                     child: Center(
                       child: _isLoading
-                          ? Center(
-                              child: CircularProgressIndicator(
-                                  color: Colors.orange))
-                          : Text('Нэвтрэх'),
+                          ? Center(child: CircularProgressIndicator())
+                          : Text(
+                              'Нэвтрэх',
+                            ),
                     )),
               ),
               Text('Эсвэл'),
@@ -106,7 +110,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ? Center(
                               child: CircularProgressIndicator(
                                   color: Colors.orange))
-                          : Text('Бүртгүүлэх'),
+                          : Text(
+                              'Бүртгүүлэх',
+                              style: TextStyle(color: Colors.orange),
+                            ),
                     )),
               ),
               SizedBox(
